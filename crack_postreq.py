@@ -2,9 +2,10 @@ import csv
 import requests
 import os
 import json
-import urllib
-# opener = urllib.build_opener()
-# opener.addheaders = [('User-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A')]
+
+header = {
+    "User-Agent": "Mozilla/5.0",
+}
 URL = 'https://dummy.restapiexample.com/api/v1/create'
 PARAMS = {"name": "test", "salary": "", "age": "23"}
 
@@ -33,7 +34,7 @@ else:
             # print(line)
             # POST REQUEST
             # print(URL)
-            r = requests.post(URL, json=res)
+            r = requests.post(URL, json=res,headers=header)
            
-            # print(r.status_code)
-            # print(r.text)
+            print(r.status_code)
+            print(r.text)
